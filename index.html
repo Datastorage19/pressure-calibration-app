@@ -4,9 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calibration App</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>แอปพลิเคชัน Pressure Calibration</h1>
-    <p>นี่คือหน้าแรกของเว็บแอปเรา</p>
+
+    <header class="main-header">
+        <h1>Pressure Calibration App</h1>
+    </header>
+
+    <main>
+
+        <section id="dashboard-view" class="view-section">
+            <h2>แดชบอร์ด / รายการสรุป</h2>
+            <p>ส่วนนี้จะเป็นที่สำหรับแสดง "ตารางสรุปรายการสอบเทียบทั้งหมด" (เหมือนในขั้นตอนที่ 1 ที่เราคุยกัน)</p>
+            <p>ผู้ใช้จะสามารถ แก้ไข, ลบ, หรือ สร้างรายการใหม่ จากหน้านี้</p>
+        </section>
+
+        <section id="entry-form-view" class="view-section">
+            <h2>หน้ากรอกข้อมูล (Data Entry Form)</h2>
+            <p>ส่วนนี้จะเป็น "ช่องสำหรับกรอกข้อมูล" ทั้งหมด</p>
+            <p>เช่น ชื่อลูกค้า, ข้อมูลอุปกรณ์, และตารางสำหรับกรอกค่าที่วัดได้ (mA, bar)</p>
+        </section>
+
+        <section id="report-view" class="view-section">
+            <h2>หน้ารายงาน (Report View)</h2>
+            <p>ส่วนนี้คือหน้าผลลัพธ์สุดท้าย ที่เราจะทำให้หน้าตาเหมือนรูปตัวอย่าง (`image_71232b.png`)</p>
+            <p>มันจะมี Logo, ตารางสรุปผล, กราฟ, และลายเซ็น</p>
+            <p>และจะมีปุ่ม Export PDF/Excel อยู่ที่นี่ครับ</p>
+        </section>
+
+    </main>
+
 </body>
 </html>
