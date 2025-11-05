@@ -1,139 +1,80 @@
+:root {
+  --primary-color: #007991; /* ฟ้าน้ำทะเล */
+  --secondary-color: #78ffd6; /* เขียวมิ้นท์ */
+  --background-color: #f7fafc;
+  --card-background-color: #ffffff;
+  --border-color: #e2e8f0;
+  --text-primary: #2d3748;
+  --text-secondary: #718096;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:root {
-  --primary-color: #007991;
-  --light-bg-color: #f0f7f8;
-  --border-color: #cde4e8;
-  --text-primary: #2d3748;
-  --text-secondary: #718096;
-}
-
 body {
   font-family: 'Sarabun', sans-serif;
-  background-color: #e9ecef;
+  background-color: var(--background-color);
   font-size: 15px;
   color: var(--text-primary);
-  padding-top: 130px; /* เพิ่ม padding ด้านบนให้เท่ากับความสูงของ Navbar + Tabs */
+  line-height: 1.6;
 }
 
 /* Navbar */
 .navbar {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 12px 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  width: 100%;
+  background: white;
+  color: var(--text-primary);
+  padding: 15px 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  margin-bottom: 40px; /* <<<<<<< แก้ไขตรงนี้ */
+  border-bottom: 1px solid var(--border-color);
 }
 
 .nav-container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 
 .nav-title {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 600;
+  margin-bottom: 2px;
 }
 
 .nav-subtitle {
   font-size: 14px;
-  opacity: 0.9;
-}
-
-/* Tabs */
-.tabs-container {
-  background-color: #ffffff;
-  border-bottom: 1px solid #dee2e6;
-  width: 100%;
-}
-
-.tabs {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 10px;
-  display: flex;
-}
-
-.tab-button {
-  padding: 14px 20px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  font-family: 'Sarabun', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
   color: var(--text-secondary);
-  border-bottom: 3px solid transparent;
-  transition: all 0.2s;
 }
 
-.tab-button:hover {
-  background-color: #f8f9fa;
-  color: var(--text-primary);
-}
-
-.tab-button.active {
-  color: var(--primary-color);
-  border-bottom-color: var(--primary-color);
-  font-weight: 600;
-}
-
-/* Sticky Navbar and Tabs */
-.sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-.tabs-container.sticky {
-  top: 60px; /* ความสูงของ Navbar */
-}
-
-/* Container & Content */
+/* Container & Card */
 .container {
-  max-width: 1100px;
-  margin: 24px auto;
-  padding: 0 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
 }
 
-.tab-content {
-  display: none;
-  animation: fadeIn 0.4s;
-}
-
-.tab-content.active {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Card */
 .card {
-  background-color: #ffffff;
-  border: 1px solid #dee2e6;
+  background: var(--card-background-color);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+  margin-bottom: 30px;
   overflow: hidden;
 }
 
 .card-header {
   padding: 16px 24px;
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #dee2e6;
+  background: #fafafa;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .card-header h2 {
   font-size: 18px;
   font-weight: 600;
+  color: var(--text-primary);
 }
 
 .card-body {
@@ -141,79 +82,124 @@ body {
 }
 
 /* Form */
-.form-grid, .range-group {
+.form-grid {
   display: grid;
-  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 32px;
+  margin-bottom: 24px;
 }
 
-.form-grid {
-  grid-template-columns: 1fr 1fr;
+.form-column {
+  display: flex;
+  flex-direction: column;
+  gap: 28px; /* <<<<<<< แก้ไขตรงนี้ */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
 }
 
 .range-group {
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  align-items: end;
-}
-
-.form-section {
-  background-color: #fdfdff;
-  border: 1px solid #e9ecef;
-  border-radius: 6px;
-  padding: 20px;
-}
-
-.section-label {
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin-bottom: 12px;
-  font-weight: 500;
+  gap: 10px;
+  align-items: center;
 }
 
 label {
-  font-size: 14px;
   font-weight: 500;
-  margin-bottom: 6px;
+  color: var(--text-secondary);
+  margin-bottom: 10px; /* <<<<<<< แก้ไขตรงนี้ */
+  font-size: 14px;
 }
 
 input, select {
-  width: 100%;
-  padding: 10px 14px;
-  border: 1px solid #ced4da;
-  border-radius: 4px;
-  font-family: inherit;
-  font-size: 15px;
+  padding: 11px 15px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: 'Sarabun', sans-serif;
+  transition: all 0.2s;
+  background: #fff;
 }
 
 input:focus, select:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(0, 121, 145, 0.15);
+  box-shadow: 0 0 0 3px rgba(0, 121, 145, 0.1);
 }
 
-.form-actions {
-  grid-column: 1 / -1;
-  text-align: right;
-  margin-top: 10px;
+input::placeholder {
+  color: #a0aec0;
 }
 
-.btn-next {
-  background-color: var(--primary-color);
+/* Button */
+.btn-primary {
+  background: var(--primary-color);
   color: white;
-  padding: 10px 20px;
+  padding: 12px 28px;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  border-radius: 6px;
+  font-size: 15px;
   font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-.btn-next:hover {
-  background-color: #005a6e;
+.btn-primary:hover {
+  background: #005a6e;
+  box-shadow: 0 4px 12px rgba(0, 121, 145, 0.2);
 }
 
-/* Data List (from previous step) */
-#dataList { display: grid; gap: 16px; }
-.data-card { background: #fff; border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; border-left: 4px solid var(--secondary-color); }
-.data-card h3 { font-size: 16px; margin-bottom: 12px; }
-.data-card p { margin: 6px 0; font-size: 14px; }
-.data-card strong { min-width: 120px; display: inline-block; }
-.loading, .empty-state { text-align: center; padding: 40px 20px; color: #a0aec0; }
+/* Data List */
+#dataList {
+  display: grid;
+  gap: 16px;
+}
+
+.data-card {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  border-left: 4px solid var(--secondary-color);
+  transition: box-shadow 0.2s;
+}
+
+.data-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.data-card h3 {
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.data-card p {
+  color: var(--text-secondary);
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.data-card strong {
+  color: #4a5568;
+  font-weight: 600;
+  min-width: 120px;
+  display: inline-block;
+}
+
+.loading, .empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #a0aec0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
