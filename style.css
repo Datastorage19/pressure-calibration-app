@@ -98,7 +98,7 @@ body {
 }
 
 .tabs-container.sticky {
-  top: 80px; /* <<<<<<< ปรับความสูง Navbar */
+  top: 60px; /* <<<<<<< ปรับความสูง Navbar */
 }
 
 /* Container & Content */
@@ -151,8 +151,8 @@ body {
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px 40px; /* <<<<<<< ปรับระยะห่าง */
-  margin-bottom: 24px;
+  gap: 32px 30px; /* <<<<<<< ปรับระยะห่าง */
+  margin-bottom: 30px;
 }
 
 .form-column {
