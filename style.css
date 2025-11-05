@@ -1,200 +1,139 @@
-:root {
-  --primary-color: #007991; /* ฟ้าน้ำทะเล */
-  --secondary-color: #78ffd6; /* เขียวมิ้นท์ */
-  --background-color: #f7fafc;
-  --card-background-color: #ffffff;
-  --border-color: #e2e8f0;
-  --text-primary: #2d3748;
-  --text-secondary: #718096;
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --primary-color: #007991; /* ฟ้าน้ำทะเล */
+  --light-bg-color: #f0f7f8; /* สีครีมอ่อนๆ แทน */
+  --border-color: #cde4e8;   /* สีขอบอ่อนลง */
+  --text-primary: #2d3748;
+  --text-secondary: #718096;
+}
+
 body {
   font-family: 'Sarabun', sans-serif;
-  background-color: var(--background-color);
+  background-color: #e9ecef;
   font-size: 15px;
   color: var(--text-primary);
-  line-height: 1.6;
 }
 
-/* Navbar */
-.navbar {
-  background: white;
-  color: var(--text-primary);
-  padding: 15px 0;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  margin-bottom: 30px;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.nav-title {
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 2px;
-}
-
-.nav-subtitle {
-  font-size: 14px;
-  color: var(--text-secondary);
-}
-
-/* Container & Card */
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px 40px;
+  max-width: 1100px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 0;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 0 15px rgba(0,0,0,0.07);
 }
 
-.card {
-  background: var(--card-background-color);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-  margin-bottom: 30px;
-  overflow: hidden;
+.form-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 24px;
 }
 
-.card-header {
-  padding: 16px 24px;
-  background: #fafafa;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.card-header h2 {
+.form-header h2 {
   font-size: 18px;
   font-weight: 600;
-  color: var(--text-primary);
 }
 
-.card-body {
+form {
   padding: 24px;
 }
 
-/* Form */
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px 32px; /* เพิ่มระยะห่างระหว่างคอลัมน์ */
-  margin-bottom: 24px;
+  gap: 20px;
 }
 
-.form-column {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.range-group {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
-  align-items: center;
-}
-
-label {
-  font-weight: 500;
-  color: var(--text-secondary);
-  margin-bottom: 8px;
-  font-size: 14px;
-}
-
-input, select {
-  padding: 11px 15px;
-  border: 1.5px solid var(--border-color);
-  border-radius: 6px;
-  font-size: 14px;
-  font-family: 'Sarabun', sans-serif;
-  transition: all 0.2s;
-  background: #fff;
-}
-
-input:focus, select:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(0, 121, 145, 0.1);
-}
-
-input::placeholder {
-  color: #a0aec0;
-}
-
-/* Button */
-.btn-primary {
-  background: var(--primary-color);
-  color: white;
-  padding: 12px 28px;
-  border: none;
-  border-radius: 6px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-primary:hover {
-  background: #005a6e;
-  box-shadow: 0 4px 12px rgba(0, 121, 145, 0.2);
-}
-
-/* Data List */
-#dataList {
-  display: grid;
-  gap: 16px;
-}
-
-.data-card {
-  background: #fff;
+.form-section {
+  background-color: var(--light-bg-color);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 20px;
-  border-left: 4px solid var(--secondary-color);
-  transition: box-shadow 0.2s;
 }
 
-.data-card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+/* ทำให้ช่องแรกและช่องสองเต็มความกว้าง */
+.form-section:nth-child(1),
+.form-section:nth-child(2) {
+  grid-column: span 1;
 }
 
-.data-card h3 {
-  color: var(--text-primary);
-  font-size: 16px;
-  font-weight: 600;
+/* ทำให้ช่องที่เหลือเล็กและเรียงต่อกัน */
+.form-section:nth-child(3),
+.form-section:nth-child(4),
+.form-section:nth-child(5),
+.form-section:nth-child(6) {
+  grid-column: span 1;
+}
+
+.section-label {
+  font-size: 14px;
+  color: var(--text-secondary);
   margin-bottom: 12px;
 }
 
-.data-card p {
-  color: var(--text-secondary);
-  margin: 6px 0;
+.input-group {
+  margin-bottom: 10px;
+}
+
+.input-group label {
+  font-weight: 500;
+  display: block;
   font-size: 14px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
 }
 
-.data-card strong {
-  color: #4a5568;
+input[type="text"], 
+input[type="number"],
+input[type="date"],
+textarea, 
+select {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1.5px solid #ced4da;
+  padding: 8px 2px;
+  font-size: 15px;
+  font-family: 'Sarabun', sans-serif;
+  color: var(--text-primary);
+  transition: border-color 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-bottom-color: var(--primary-color);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.btn-next {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Sarabun', sans-serif;
   font-weight: 600;
-  min-width: 120px;
-  display: inline-block;
+  font-size: 14px;
+  transition: background-color 0.2s;
 }
 
-.loading, .empty-state {
-  text-align: center;
-  padding: 40px 20px;
-  color: #a0aec0;
+.btn-next:hover {
+  background-color: #005a6e;
 }
 
 /* Responsive */
