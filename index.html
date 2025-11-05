@@ -5,94 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ระบบสอบเทียบความดัน - Pressure Calibration</title>
   
-  <!-- Google Fonts - Sarabun -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-container">
-      <h1 class="nav-title">ระบบสอบเทียบความดัน</h1>
-      <p class="nav-subtitle">Pressure Calibration Management System</p>
-    </div>
-  </nav>
-
   <div class="container">
-    <!-- ส่วนฟอร์มบันทึกข้อมูล -->
-    <div class="card">
-      <div class="card-header">
-        <h2>📋 บันทึกข้อมูลการสอบเทียบ</h2>
-      </div>
-      <div class="card-body">
-        <form id="calibrationForm">
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="serialNumber">Serial Number <span class="required">*</span></label>
-              <input type="text" id="serialNumber" placeholder="เช่น PG-2024-001" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="instrumentType">ประเภทเครื่องมือ <span class="required">*</span></label>
-              <select id="instrumentType" required>
-                <option value="">-- เลือกประเภทเครื่องมือ --</option>
-                <option value="Bourdon Tube Gauge">Bourdon Tube Gauge</option>
-                <option value="Electric Pressure Gauge">Electric Pressure Gauge</option>
-                <option value="Pressure Transmitter">Pressure Transmitter</option>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="range">ช่วงการวัด (Range) <span class="required">*</span></label>
-              <input type="text" id="range" placeholder="เช่น 0-300 mmHg" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="accuracyClass">Accuracy Class <span class="required">*</span></label>
-              <select id="accuracyClass" required>
-                <option value="">-- เลือก Accuracy Class --</option>
-                <option value="< 0.1%">< 0.1%</option>
-                <option value="0.1% - 0.6%">0.1% - 0.6%</option>
-                <option value="> 0.6%">> 0.6%</option>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="operatorName">ชื่อผู้สอบเทียบ <span class="required">*</span></label>
-              <input type="text" id="operatorName" placeholder="ชื่อ-นามสกุล" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="calibrationDate">วันที่สอบเทียบ <span class="required">*</span></label>
-              <input type="date" id="calibrationDate" required>
-            </div>
+    <div class="form-header">
+      <h2>1. Information and Place of Calibration</h2>
+    </div>
+
+    <form id="calibrationForm">
+      <div class="form-grid">
+        <!-- Customer Information -->
+        <div class="form-section">
+          <p class="section-label">Customer information</p>
+          <div class="input-group">
+            <label for="customerCompany">Company:</label>
+            <input type="text" id="customerCompany" value="Customer Co., Ltd.">
           </div>
-          
-          <button type="submit" class="btn-primary">
-            <span>💾 บันทึกข้อมูล</span>
-          </button>
-        </form>
+          <div class="input-group">
+            <label for="customerAddress">Address:</label>
+            <textarea id="customerAddress" rows="3"></textarea>
+          </div>
+          <div class="input-group">
+            <label for="customerCity">Code City:</label>
+            <input type="text" id="customerCity">
+          </div>
+        </div>
+
+        <!-- Place of Calibration -->
+        <div class="form-section">
+          <p class="section-label">Place of calibration</p>
+          <div class="input-group">
+            <label for="calCompany">Company:</label>
+            <input type="text" id="calCompany" value="Instrument Calibration Office of Technical For Spirit Production">
+          </div>
+          <div class="input-group">
+            <label for="calAddress">Address:</label>
+            <input type="text" id="calAddress" value="260 Sangsom Building, Phaholyothin Road, Samsen-ai, Phayathai, Bangkok 10400">
+          </div>
+          <div class="input-group">
+            <label for="calCity">Code City:</label>
+            <input type="text" id="calCity" value="Bangkok">
+          </div>
+        </div>
+
+        <!-- Certificate and Dates -->
+        <div class="form-section">
+          <p class="section-label">Certificate No.</p>
+          <div class="input-group">
+            <select id="certType">
+              <option>AUTO</option>
+              <option>MANUAL</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-section">
+          <p class="section-label">Received</p>
+          <div class="input-group">
+            <input type="text" id="receivedDate" placeholder="วว/ดด/ปปปป">
+          </div>
+        </div>
+        
+        <div class="form-section">
+          <p class="section-label">Calibration</p>
+          <div class="input-group">
+            <input type="text" id="calibrationDate" placeholder="วว/ดด/ปปปป">
+          </div>
+        </div>
+
+        <div class="form-section">
+          <p class="section-label">Issue Date</p>
+          <div class="input-group">
+            <input type="text" id="issueDate" placeholder="วว/ดด/ปปปป">
+          </div>
+        </div>
       </div>
-    </div>
-    
-    <!-- ส่วนแสดงข้อมูล -->
-    <div class="card">
-      <div class="card-header">
-        <h2>📊 รายการข้อมูลที่บันทึก</h2>
+      
+      <div class="form-actions">
+        <button type="button" class="btn-next">ถัดไป ►</button>
       </div>
-      <div class="card-body">
-        <div id="dataList"></div>
-      </div>
-    </div>
+    </form>
   </div>
-  
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
-  
-  <!-- JavaScript -->
-  <script src="app.js"></script>
 </body>
 </html>
