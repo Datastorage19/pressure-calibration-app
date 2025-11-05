@@ -17,7 +17,7 @@ body {
   background-color: #e9ecef;
   font-size: 15px;
   color: var(--text-primary);
-  padding-top: 130px; /* เพิ่ม padding ด้านบนให้เท่ากับความสูงของ Navbar + Tabs */
+  padding-top: 120px; /* ปรับ padding ให้พอดีกับความสูงรวมของ Navbar + Tabs */
 }
 
 /* Navbar */
@@ -26,7 +26,6 @@ body {
   color: white;
   padding: 14px 0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-bottom: 40px;
   width: 100%;
 }
 
@@ -146,7 +145,7 @@ body {
 /* Form */
 .form-grid, .range-group {
   display: grid;
-  gap: 20px;
+  gap: 24px; /* <<<<<<< แก้ไขตรงนี้ */
   margin-bottom: 24px;
 }
 
@@ -176,7 +175,7 @@ body {
 label {
   font-size: 14px;
   font-weight: 500;
-  margin-bottom: 6px;
+  margin-bottom: 8px; /* <<<<<<< แก้ไขตรงนี้ */
 }
 
 input, select {
