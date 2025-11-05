@@ -84,9 +84,15 @@ body {
 /* Form */
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 32px; /* เพิ่มระยะห่างระหว่างคอลัมน์ */
   margin-bottom: 24px;
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .form-group {
@@ -94,11 +100,11 @@ body {
   flex-direction: column;
 }
 
-.input-group-row {
-  grid-column: 1 / -1;
+.range-group {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  align-items: center;
 }
 
 label {
@@ -193,7 +199,7 @@ input::placeholder {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .form-grid, .input-group-row {
+  .form-grid {
     grid-template-columns: 1fr;
   }
 }
