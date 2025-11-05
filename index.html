@@ -12,89 +12,128 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="form-header">
-      <h2>1. Calibration Instrument Information</h2>
+  <!-- Navbar ที่จะถูกตรึง -->
+  <nav class="navbar sticky">
+    <div class="nav-container">
+      <h1 class="nav-title">ระบบสอบเทียบความดัน</h1>
+      <p class="nav-subtitle">Pressure Calibration Management System</p>
     </div>
+  </nav>
 
-    <form id="calibrationForm">
-      <div class="form-grid">
-        <!-- Section 1 -->
-        <div class="form-section">
-          <p class="section-label">Instrument Details</p>
-          <div class="input-group">
-            <label for="serialNumber">Serial Number:</label>
-            <input type="text" id="serialNumber" placeholder="เช่น PG-2024-001" required>
-          </div>
-          <div class="input-group">
-            <label for="instrumentType">Instrument Type:</label>
-            <select id="instrumentType" required>
-              <option value="">-- เลือกประเภท --</option>
-              <option value="Bourdon Tube Gauge">Bourdon Tube Gauge</option>
-              <option value="Electric Pressure Gauge">Electric Pressure Gauge</option>
-              <option value="Pressure Transmitter">Pressure Transmitter</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Section 2 -->
-        <div class="form-section">
-          <p class="section-label">Measurement Range</p>
-          <div class="range-group">
-            <div class="input-group">
-              <label for="rangeMin">Min:</label>
-              <input type="number" id="rangeMin" placeholder="0" value="0">
-            </div>
-            <div class="input-group">
-              <label for="rangeMax">Max:</label>
-              <input type="number" id="rangeMax" placeholder="300" required>
-            </div>
-            <div class="input-group">
-              <label for="rangeUnit">Unit:</label>
-              <select id="rangeUnit" required>
-                <option value="mmHg">mmHg</option>
-                <option value="bar">bar</option>
-                <option value="kPa">kPa</option>
-                <option value="psi">psi</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <!-- Section 3 -->
-        <div class="form-section">
-          <p class="section-label">Accuracy Class</p>
-          <div class="input-group">
-            <select id="accuracyClass" required>
-              <option value="">-- เลือก Accuracy --</option>
-              <option value="< 0.1%">< 0.1%</option>
-              <option value="0.1% - 0.6%">0.1% - 0.6%</option>
-              <option value="> 0.6%">> 0.6%</option>
-            </select>
-          </div>
-        </div>
-        
-        <!-- Section 4 -->
-        <div class="form-section">
-          <p class="section-label">Calibration Date</p>
-          <div class="input-group">
-            <input type="date" id="calibrationDate" required>
-          </div>
-        </div>
-      </div>
-      
-      <div class="form-actions">
-        <button type="submit" class="btn-next">ถัดไป ►</button>
-      </div>
-    </form>
+  <!-- Tabs สำหรับเลือกหน้า -->
+  <div class="tabs-container sticky">
+    <div class="tabs">
+      <button class="tab-button active" onclick="openTab(event, 'tab-form')">📝 บันทึกข้อมูล</button>
+      <button class="tab-button" onclick="openTab(event, 'tab-data')">📊 รายการข้อมูล</button>
+      <button class="tab-button" onclick="openTab(event, 'tab-measurement')">📐 บันทึกค่า Up/Down</button>
+    </div>
   </div>
-  
-  <!-- ส่วนแสดงผลข้อมูล -->
-  <div class="container" style="margin-top: 20px;">
-    <div class="form-header">
-      <h2>ข้อมูลที่บันทึก</h2>
+
+  <div class="container">
+    <!-- หน้าที่ 1: ฟอร์มบันทึกข้อมูล -->
+    <div id="tab-form" class="tab-content active">
+      <div class="card">
+        <div class="card-header">
+          <h2>1. Calibration Instrument Information</h2>
+        </div>
+        <div class="card-body">
+          <form id="calibrationForm">
+            <div class="form-grid">
+              <!-- Section 1 -->
+              <div class="form-section">
+                <p class="section-label">Instrument Details</p>
+                <div class="input-group">
+                  <label for="serialNumber">Serial Number:</label>
+                  <input type="text" id="serialNumber" placeholder="เช่น PG-2024-001" required>
+                </div>
+                <div class="input-group">
+                  <label for="instrumentType">Instrument Type:</label>
+                  <select id="instrumentType" required>
+                    <option value="">-- เลือกประเภท --</option>
+                    <option value="Bourdon Tube Gauge">Bourdon Tube Gauge</option>
+                    <option value="Electric Pressure Gauge">Electric Pressure Gauge</option>
+                    <option value="Pressure Transmitter">Pressure Transmitter</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Section 2 -->
+              <div class="form-section">
+                <p class="section-label">Measurement Range</p>
+                <div class="range-group">
+                  <div class="input-group">
+                    <label for="rangeMin">Min:</label>
+                    <input type="number" id="rangeMin" placeholder="0" value="0">
+                  </div>
+                  <div class="input-group">
+                    <label for="rangeMax">Max:</label>
+                    <input type="number" id="rangeMax" placeholder="300" required>
+                  </div>
+                  <div class="input-group">
+                    <label for="rangeUnit">Unit:</label>
+                    <select id="rangeUnit" required>
+                      <option value="mmHg">mmHg</option>
+                      <option value="bar">bar</option>
+                      <option value="kPa">kPa</option>
+                      <option value="psi">psi</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 3 -->
+              <div class="form-section">
+                <p class="section-label">Accuracy Class</p>
+                <div class="input-group">
+                  <select id="accuracyClass" required>
+                    <option value="">-- เลือก Accuracy --</option>
+                    <option value="< 0.1%">< 0.1%</option>
+                    <option value="0.1% - 0.6%">0.1% - 0.6%</option>
+                    <option value="> 0.6%">> 0.6%</option>
+                  </select>
+                </div>
+              </div>
+              
+              <!-- Section 4 -->
+              <div class="form-section">
+                <p class="section-label">Calibration Date</p>
+                <div class="input-group">
+                  <input type="date" id="calibrationDate" required>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-actions">
+              <button type="submit" class="btn-next">บันทึกและไปต่อ ►</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-    <div id="dataList" style="padding: 24px;"></div>
+
+    <!-- หน้าที่ 2: รายการข้อมูล -->
+    <div id="tab-data" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <h2>ข้อมูลที่บันทึก</h2>
+        </div>
+        <div class="card-body">
+          <div id="dataList"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- หน้าที่ 3: บันทึกค่า Up/Down -->
+    <div id="tab-measurement" class="tab-content">
+        <div class="card">
+            <div class="card-header">
+                <h2>บันทึกค่าการวัด (Up/Down)</h2>
+            </div>
+            <div class="card-body">
+                <p>ส่วนนี้จะใช้สำหรับบันทึกค่าการวัดจริงในแต่ละจุดสอบเทียบ (อยู่ระหว่างการพัฒนา)</p>
+            </div>
+        </div>
+    </div>
   </div>
 
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
