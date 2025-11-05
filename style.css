@@ -6,8 +6,8 @@
 
 :root {
   --primary-color: #007991; /* ฟ้าน้ำทะเล */
-  --light-bg-color: #f0f7f8; /* สีครีมอ่อนๆ แทน */
-  --border-color: #cde4e8;   /* สีขอบอ่อนลง */
+  --light-bg-color: #f0f7f8; /* สีครีมอ่อนๆ */
+  --border-color: #cde4e8;   /* สีขอบอ่อน */
   --text-primary: #2d3748;
   --text-secondary: #718096;
 }
@@ -56,24 +56,11 @@ form {
   padding: 20px;
 }
 
-/* ทำให้ช่องแรกและช่องสองเต็มความกว้าง */
-.form-section:nth-child(1),
-.form-section:nth-child(2) {
-  grid-column: span 1;
-}
-
-/* ทำให้ช่องที่เหลือเล็กและเรียงต่อกัน */
-.form-section:nth-child(3),
-.form-section:nth-child(4),
-.form-section:nth-child(5),
-.form-section:nth-child(6) {
-  grid-column: span 1;
-}
-
 .section-label {
   font-size: 14px;
   color: var(--text-secondary);
   margin-bottom: 12px;
+  font-weight: 500;
 }
 
 .input-group {
@@ -111,6 +98,17 @@ input:focus, textarea:focus, select:focus {
 
 textarea {
   resize: vertical;
+}
+
+.range-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  align-items: end;
+}
+
+.range-group .input-group {
+  margin-bottom: 0;
 }
 
 .form-actions {
