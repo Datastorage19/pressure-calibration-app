@@ -41,6 +41,28 @@ form.addEventListener('submit', async (e) => {
     console.error('Error:', error);
     alert('เกิดข้อผิดพลาด: ' + error.message);
   }
+  // Tab switching logic
+function openTab(evt, tabName) {
+  // ซ่อนเนื้อหาทั้งหมด
+  const tabContents = document.getElementsByClassName("tab-content");
+  for (let i = 0; i < tabContents.length; i++) {
+    tabContents[i].style.display = "none";
+  }
+
+  // ลบคลาส active ออกจากปุ่มทั้งหมด
+  const tabButtons = document.getElementsByClassName("tab-button");
+  for (let i = 0; i < tabButtons.length; i++) {
+    tabButtons[i].className = tabButtons[i].className.replace(" active", "");
+  }
+
+  // แสดงเนื้อหาของแท็บที่เลือก และเพิ่มคลาส active ให้ปุ่ม
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// เปิดแท็บแรกเป็นค่าเริ่มต้น
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector(".tab-button").click();
 });
 
 // โหลดข้อมูลทั้งหมด
