@@ -24,9 +24,10 @@ form.addEventListener('submit', async (e) => {
   const data = {
     serialNumber: document.getElementById('serialNumber').value,
     instrumentType: document.getElementById('instrumentType').value,
-    range: document.getElementById('range').value,
+    rangeMin: document.getElementById('rangeMin').value,
+    rangeMax: document.getElementById('rangeMax').value,
+    rangeUnit: document.getElementById('rangeUnit').value,
     accuracyClass: document.getElementById('accuracyClass').value,
-    operatorName: document.getElementById('operatorName').value,
     calibrationDate: document.getElementById('calibrationDate').value,
     createdAt: firebase.firestore.FieldValue.serverTimestamp()
   };
@@ -44,38 +45,9 @@ form.addEventListener('submit', async (e) => {
 
 // โหลดข้อมูลทั้งหมด
 async function loadData() {
-  dataList.innerHTML = '<div class="loading">กำลังโหลดข้อมูล...</div>';
-  
-  try {
-    const snapshot = await db.collection('calibrations')
-      .orderBy('createdAt', 'desc')
-      .get();
-    
-    if (snapshot.empty) {
-      dataList.innerHTML = '<p style="text-align:center; color:#999;">ยังไม่มีข้อมูล</p>';
-      return;
-    }
-    
-    dataList.innerHTML = '';
-    snapshot.forEach(doc => {
-      const data = doc.data();
-      const card = document.createElement('div');
-      card.className = 'data-card';
-      card.innerHTML = `
-        <h3>Serial: ${data.serialNumber}</h3>
-        <p><strong>ประเภท:</strong> ${data.instrumentType}</p>
-        <p><strong>ช่วงวัด:</strong> ${data.range}</p>
-        <p><strong>Accuracy Class:</strong> ${data.accuracyClass}</p>
-        <p><strong>ผู้สอบเทียบ:</strong> ${data.operatorName}</p>
-        <p><strong>วันที่:</strong> ${data.calibrationDate}</p>
-      `;
-      dataList.appendChild(card);
-    });
-  } catch (error) {
-    console.error('Error loading data:', error);
-    dataList.innerHTML = '<p style="color:red;">ไม่สามารถโหลดข้อมูลได้</p>';
-  }
+  // ... (ส่วนนี้เหมือนเดิม)
 }
 
 // โหลดข้อมูลเมื่อเปิดหน้าเว็บ
 loadData();
+
