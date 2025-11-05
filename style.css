@@ -1,56 +1,115 @@
-/* ---
-   ไฟล์: style.css
-   --- */
-
-/* ตั้งค่าตัวแปรสีเขียวอ่อน (เปลี่ยนง่ายในอนาคต) */
-:root {
-  --theme-color-light: #e8f5e9; /* สีเขียวอ่อน สบายตา */
-  --theme-color-dark: #4caf50;  /* สีเขียวเข้ม สำหรับเส้นขอบหรือหัวตาราง */
-  --text-color: #333;
-  --bg-color: #f7f9f7; /* พื้นหลังเว็บ (ขาวอมเขียวเล็กน้อย) */
-}
-
-/* ตั้งค่าพื้นฐานสำหรับทั้งหน้า */
-body {
-  font-family: 'Sarabun', sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* แถบเมนูด้านบน */
-header.main-header {
-  background-color: var(--theme-color-dark);
-  color: white;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
 }
 
-header.main-header h1 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-/* ส่วนเนื้อหาหลัก */
-main {
-  max-width: 1200px; /* ไม่ให้เว็บกว้างเกินไปในจอใหญ่ */
+.container {
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 2rem;
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
 }
 
-/* กล่องสำหรับแต่ละ "หน้า" */
-.view-section {
-  background-color: white;
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+h2 {
+  color: #555;
+  margin-bottom: 20px;
+  font-size: 20px;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 10px;
+}
+
+.form-section {
+  margin-bottom: 40px;
+}
+
+form {
+  display: grid;
+  gap: 15px;
+}
+
+label {
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin-top: 10px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.data-section {
+  margin-top: 30px;
+}
+
+#dataList {
+  display: grid;
+  gap: 15px;
+}
+
+.data-card {
+  background: #f8f9fa;
+  padding: 20px;
   border-radius: 8px;
-  padding: 2rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  margin-bottom: 2rem;
+  border-left: 4px solid #667eea;
 }
 
-.view-section h2 {
-  border-bottom: 2px solid var(--theme-color-light);
-  padding-bottom: 0.5rem;
-  color: var(--theme-color-dark);
+.data-card h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.data-card p {
+  color: #666;
+  margin: 5px 0;
+}
+
+.loading {
+  text-align: center;
+  color: #999;
+  padding: 20px;
 }
