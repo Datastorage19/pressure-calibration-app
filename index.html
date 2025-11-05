@@ -1,44 +1,61 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calibration App</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pressure Calibration App</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <header class="main-header">
-        <h1>Pressure Calibration App</h1>
-    </header>
-
-    <main>
-
-        <section id="dashboard-view" class="view-section">
-            <h2>แดชบอร์ด / รายการสรุป</h2>
-            <p>ส่วนนี้จะเป็นที่สำหรับแสดง "ตารางสรุปรายการสอบเทียบทั้งหมด" (เหมือนในขั้นตอนที่ 1 ที่เราคุยกัน)</p>
-            <p>ผู้ใช้จะสามารถ แก้ไข, ลบ, หรือ สร้างรายการใหม่ จากหน้านี้</p>
-        </section>
-
-        <section id="entry-form-view" class="view-section">
-            <h2>หน้ากรอกข้อมูล (Data Entry Form)</h2>
-            <p>ส่วนนี้จะเป็น "ช่องสำหรับกรอกข้อมูล" ทั้งหมด</p>
-            <p>เช่น ชื่อลูกค้า, ข้อมูลอุปกรณ์, และตารางสำหรับกรอกค่าที่วัดได้ (mA, bar)</p>
-        </section>
-
-        <section id="report-view" class="view-section">
-            <h2>หน้ารายงาน (Report View)</h2>
-            <p>ส่วนนี้คือหน้าผลลัพธ์สุดท้าย ที่เราจะทำให้หน้าตาเหมือนรูปตัวอย่าง (`image_71232b.png`)</p>
-            <p>มันจะมี Logo, ตารางสรุปผล, กราฟ, และลายเซ็น</p>
-            <p>และจะมีปุ่ม Export PDF/Excel อยู่ที่นี่ครับ</p>
-        </section>
-
-    </main>
-
+  <div class="container">
+    <h1>ระบบสอบเทียบความดัน (Pressure Calibration)</h1>
+    
+    <div class="form-section">
+      <h2>บันทึกข้อมูลการสอบเทียบ</h2>
+      <form id="calibrationForm">
+        <label>Serial Number:</label>
+        <input type="text" id="serialNumber" required>
+        
+        <label>Instrument Type:</label>
+        <select id="instrumentType" required>
+          <option value="">-- เลือก --</option>
+          <option value="Bourdon Tube Gauge">Bourdon Tube Gauge</option>
+          <option value="Electric Pressure Gauge">Electric Pressure Gauge</option>
+          <option value="Pressure Transmitter">Pressure Transmitter</option>
+        </select>
+        
+        <label>Range (ช่วงวัด):</label>
+        <input type="text" id="range" placeholder="เช่น 0-300 mmHg" required>
+        
+        <label>Accuracy Class:</label>
+        <select id="accuracyClass" required>
+          <option value="">-- เลือก --</option>
+          <option value="< 0.1%">< 0.1%</option>
+          <option value="0.1% - 0.6%">0.1% - 0.6%</option>
+          <option value="> 0.6%">> 0.6%</option>
+        </select>
+        
+        <label>ชื่อผู้สอบเทียบ:</label>
+        <input type="text" id="operatorName" required>
+        
+        <label>วันที่สอบเทียบ:</label>
+        <input type="date" id="calibrationDate" required>
+        
+        <button type="submit">บันทึกข้อมูล</button>
+      </form>
+    </div>
+    
+    <div class="data-section">
+      <h2>ข้อมูลที่บันทึก</h2>
+      <div id="dataList"></div>
+    </div>
+  </div>
+  
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+  
+  <!-- JavaScript ของเรา -->
+  <script src="app.js"></script>
 </body>
 </html>
